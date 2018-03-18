@@ -5,16 +5,22 @@
   </head>
   <body>
     <h1>Criar conta</h1>
-    <% if (typeof error !== 'undefined') { %>
+    <% if (typeof success !== 'undefined') { %>
         <p>
-            <%= error %>
+            <%= success %>
         </p>
+    <% } else { %>
+        <% if (typeof error !== 'undefined') { %>
+            <p>
+                <%= error %>
+            </p>
+        <% } %>
+        <form action="signup" method="post">
+            <p>Usuário: <input type="text" name="username" /></p>
+            <p>Email: <input type="email" name="email" /></p>
+            <p>Senha: <input type="password" name="password" /></p>
+            <input type="submit" value="Criar usuário">
+        </form>
     <% } %>
-    <form action="login" method="post">
-        <p>Usuário: <input type="text" name="username" /></p>
-        <p>Email: <input type="email" name="email" /></p>
-        <p>Senha: <input type="password" name="password" /></p>
-        <input type="submit" value="Criar usuário">
-    </form>
   </body>
 </html>
